@@ -1,0 +1,29 @@
+<h1>Dettagli modello</h1>
+
+<%= link_to 'Indietro', models_path %>
+<%= link_to 'Modifica', edit_model_path(@model) %>
+
+<p>
+  <b>Codice:</b>
+  <%= @model.code %>
+</p>
+
+<p>
+  <b>Descrizione:</b>
+  <%= @model.description %>
+</p>
+
+<h2>Articoli (<%= @model.articles.count %>)</h2>
+<table>
+  <tr>
+    <th>Codice a barre</th>
+    <th>Descrizione</th>
+  </tr>
+  <% @model.articles.each do |article| %>
+  <tr>
+    <td><%= article.barcode %></td>
+    <td><%= article.size %></td>
+  </tr>
+  <% end %>
+</table>
+

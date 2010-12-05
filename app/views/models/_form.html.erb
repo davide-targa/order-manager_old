@@ -1,0 +1,25 @@
+<%= nested_form_for(@model) do |f| %>
+
+  <%= render 'shared/error_messages', :object => @model %>
+
+  <div class="field">
+    <%= f.label :code, "Codice" %><br />
+    <%= f.text_field :code %>
+  </div>
+  <div class="field">
+    <%= f.label :description, "Descrizione modello" %><br />
+    <%= f.text_field :description %>
+  </div>
+
+  <h2>Articoli</h2>
+  <div>
+    <%= f.fields_for :articles do |builder| %>
+      <%= render 'article_fields', :f => builder %>
+    <% end %>
+    <%= f.link_to_add "Aggiungi", :articles %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

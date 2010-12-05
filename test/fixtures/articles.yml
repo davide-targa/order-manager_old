@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  barcode: MyString
+  size: 9.99
+  model_id: 
+
+two:
+  barcode: MyString
+  size: 9.99
+  model_id: 

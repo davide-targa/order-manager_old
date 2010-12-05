@@ -1,4 +1,6 @@
 OrderManager::Application.routes.draw do
+  resources :models
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

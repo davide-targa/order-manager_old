@@ -7,6 +7,10 @@ gem 'rails', '3.0.1'
 
 gem 'mysql2'
 
+# NESTED FORM GEM
+# https://github.com/jbgo/nested_form
+gem "nested_form", :git => "git://github.com/madebydna/nested_form.git"
+
 # Use unicorn as the web server
 # gem 'unicorn'
 

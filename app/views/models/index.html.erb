@@ -1,0 +1,21 @@
+<h1>Tutti i modelli</h1>
+<%= link_to 'Nuovo Modello', new_model_path %>
+<table>
+  <tr>
+    <th>Codice</th>
+    <th>Descrizione</th>
+    <th># Articoli</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @models.each do |model| %>
+  <tr>
+    <td><%= link_to model.code, model %></td>
+    <td><%= model.description %></td>
+    <td><%= model.articles.count %></td>
+    <td><%= link_to 'Modifica', edit_model_path(model) %></td>
+    <td><%= link_to 'Elimina', model, :confirm => 'Procedere con la cancellazione?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
