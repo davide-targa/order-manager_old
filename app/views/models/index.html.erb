@@ -1,21 +1,48 @@
-<h1>Tutti i modelli</h1>
-<%= link_to 'Nuovo Modello', new_model_path %>
-<table>
-  <tr>
-    <th>Codice</th>
-    <th>Descrizione</th>
-    <th># Articoli</th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class="ui-widget ui-widget-header ui-corner-top">Tutti i modelli</div>
+<div class="ui-widget ui-widget-content ui-corner-bottom">
+  <div class="contestual-menu">
+    <%= link_to 'Nuovo Modello', new_model_path %>
+  </div>
+  <table class="tabella-elenco">
+    <tr>
+      <th class="titolo-elenco">Codice</th>
+      <th class="titolo-elenco">Descrizione</th>
+      <th class="titolo-elenco"># Articoli</th>
+      <th colspan="2" class="expand"><%= link_to "", :class => 'expand-all no-underline' do %>
+      									<div class="affiancati bottom-align ui-icon ui-icon-arrowstop-1-s"></div>
+      									<div class="affiancati">Espandi tutto</div>
+      					             <% end %></th>
+    </tr>
 
-<% @models.each do |model| %>
-  <tr>
-    <td><%= link_to model.code, model %></td>
-    <td><%= model.description %></td>
-    <td><%= model.articles.count %></td>
-    <td><%= link_to 'Modifica', edit_model_path(model) %></td>
-    <td><%= link_to 'Elimina', model, :confirm => 'Procedere con la cancellazione?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
+    <% @models.each do |model| %>
+      <tr class="hover">
+        <td><%= link_to model.code, "", :class => 'model-details' %></td>
+        <td><%= model.description %></td>
+        <td class="centra"><%= model.articles.count %></td>
+        <td><%= link_to 'Modifica', edit_model_path(model) %></td>
+        <td><%= link_to 'Elimina', model, :confirm => 'Procedere con la cancellazione?', :method => :delete %></td>
+      </tr>
+      <% if model.articles.count > 0 %>
+        <tr class="hidden">
+          <td></td>
+          <td class="td-dettagli">
+            <table class="collapse espandi">
+              <tr class="intestazione-elenco">
+                <th class="titolo-elenco">Codice a barre</th>
+                <th class="titolo-elenco">Taglia</th>
+              </tr>
+              <% model.articles.each do |article| %>
+              <tr>
+                <td><%= article.barcode %></td>
+                <td class="centra"><%= article.size %></td>
+              </tr>
+              <% end %>
+            </table>
+          <td colspan="3"></td>
+          </td>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
+  <br/>
+</div>

@@ -8,14 +8,6 @@ class ModelsController < ApplicationController
     end
   end
 
-  def show
-    @model = Model.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-    end
-  end
-
   def new
     @model = Model.new
 
@@ -33,7 +25,7 @@ class ModelsController < ApplicationController
 
     respond_to do |format|
       if @model.save
-        format.html { redirect_to(@model, :notice => 'Model was successfully created.') }
+        format.html { redirect_to(models_path, :notice => 'Model was successfully created.') }
       else
         format.html { render :action => "new" }
       end
@@ -45,7 +37,7 @@ class ModelsController < ApplicationController
 
     respond_to do |format|
       if @model.update_attributes(params[:model])
-        format.html { redirect_to(@model, :notice => 'Model was successfully updated.') }
+        format.html { redirect_to(models_path, :notice => 'Model was successfully updated.') }
       else
         format.html { render :action => "edit" }
       end

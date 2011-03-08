@@ -1,4 +1,6 @@
 OrderManager::Application.routes.draw do
+  resources :orders
+
   resources :models
 
   # The priority is based upon order of creation:
@@ -50,7 +52,7 @@ OrderManager::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => "welcome#index"
+  root :to => "models#index"
 
   # See how all your routes lay out with "rake routes"
 

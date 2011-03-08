@@ -8,18 +8,19 @@
   </div>
   <div class="field">
     <%= f.label :description, "Descrizione modello" %><br />
-    <%= f.text_field :description %>
+    <%= f.text_field :description, :size => '100' %>
   </div>
 
-  <h2>Articoli</h2>
-  <div>
+  <div class=" ui-widget ui-widget-header ui-corner-top">Articoli</div>
+  <div class="ui-widget ui-widget-content ui-corner-bottom">
     <%= f.fields_for :articles do |builder| %>
       <%= render 'article_fields', :f => builder %>
     <% end %>
     <%= f.link_to_add "Aggiungi", :articles %>
   </div>
 
+  <br/>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => "ui-state-default" %>
   </div>
 <% end %>

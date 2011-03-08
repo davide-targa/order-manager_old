@@ -1,6 +1,10 @@
-<h1>Modifica Modello</h1>
-<%= link_to 'Tutti i modelli', models_path %> |
-<%= link_to 'Dettagli modello', @model %>
-
-<%= render 'form' %>
+<div class="ui-widget ui-widget-header ui-corner-top">Modifica Modello</div>
+<div class="ui-widget ui-widget-content ui-corner-bottom">
+  <div class="contestual-menu">
+    <%= link_to 'Tutti i modelli', models_path %>
+  </div>
+    <div class="form">
+      <%= render 'form' %>
+    </div>
+  </div>
 

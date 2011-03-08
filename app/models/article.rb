@@ -10,7 +10,7 @@ class Article < ActiveRecord::Base
                   41]
   
   belongs_to :model
-  #validates :barcode, :size, :presence => true
+  validates :barcode, :size, :presence => true
   validates :barcode, :uniqueness => true
   
 end

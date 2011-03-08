@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101101165222) do
+ActiveRecord::Schema.define(:version => 20101205183103) do
 
   create_table "articles", :force => true do |t|
     t.string   "barcode"
@@ -22,7 +22,22 @@ ActiveRecord::Schema.define(:version => 20101101165222) do
 
   create_table "models", :force => true do |t|
     t.string   "code"
-    t.string   "description"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "order_lines", :force => true do |t|
+    t.integer  "article_id"
+    t.integer  "order_id"
+    t.integer  "quantity"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "orders", :force => true do |t|
+    t.date     "date"
+    t.date     "expiration_date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

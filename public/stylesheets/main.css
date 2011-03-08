@@ -1,3 +1,85 @@
 .sub-field {
     display: inline;
 }
+
+.contestual-menu {
+    display: block;
+}
+
+.contestual-menu a {    
+    color: #5c9ccc;
+}
+
+.titolo-elenco {
+    background-color: #dfeffc;
+    border: 1px solid #4297d7;
+    padding: .2em 2em .2em .5em;
+    text-align: left;
+}
+
+.tabella-elenco {
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tabella-elenco td {
+    padding: .2em 1em;
+    border: 1px solid #4297d7;
+    border-collapse: collapse;
+}
+
+.tr-hover {
+    background-color: #dfeffc;
+}
+
+.form {
+    padding: 1em 3em 0 3em;
+}
+
+.subform {
+    padding: 0 3em 0 3em;
+}
+
+.hidden {
+    display: none;
+}
+
+.collapse {
+    border-collapse: collapse;
+}
+
+.debug {
+    border: 1px solid red;
+}
+
+td.td-dettagli {
+    padding: 0;
+}
+
+.espandi {
+    width: 100%;
+}
+
+.centra {
+    text-align: center;
+}
+
+.expand {
+	font-size: .7em;
+	font-family: Verdana;
+	font-weight: normal;
+}
+
+div.affiancati{
+	display: inline-block;
+	margin: 0 auto;
+}
+
+.bottom-align{
+	vertical-align: bottom;
+}
+
+.no-underline {
+	text-decoration: none;
+}

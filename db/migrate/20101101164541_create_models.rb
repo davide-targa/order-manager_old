@@ -2,7 +2,7 @@ class CreateModels < ActiveRecord::Migration
   def self.up
     create_table :models do |t|
       t.string :code
-      t.string :description
+      t.text :description
 
       t.timestamps
     end

@@ -1,0 +1,25 @@
+<%= nested_form_for(@order) do |f| %>
+
+  <%= render 'shared/error_messages', :object => @order %>
+
+  <div class="field">
+    <%= f.label :date %><br />
+    <%= f.date_select :date, :order => [:day, :month, :year] %>
+  </div>
+  <div class="field">
+    <%= f.label :expiration_date %><br />
+    <%= f.date_select :expiration_date, :order => [:day, :month, :year] %>
+  </div>
+
+  <h2>Dettagli ordine</h2>
+  <div>
+    <%= f.fields_for :order_lines do |builder| %>
+        <%= render 'order_line_fields', :f => builder %>
+    <% end %>    
+    <%= f.link_to_add "Aggiungi", :order_lines %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
