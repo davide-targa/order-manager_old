@@ -1,0 +1,26 @@
+<h1>Listing deliveries <%= @order.date.strftime("%d/%m/%Y") %></h1>
+<% if @deliveries.length != 0 %>
+  <table>
+    <tr>
+      <th>Delivery date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+
+
+    <% @deliveries.each do |delivery| %>
+      <tr>
+        <td><%= delivery.date.strftime("%d/%m/%Y") %></td>
+        <td><%= link_to "Dettagli", order_delivery_path(delivery.order, delivery) %></td>
+        <td><%= link_to 'Edit', edit_order_delivery_path(delivery.order, delivery) %></td>
+        <td><%= link_to 'Destroy', order_delivery_path(delivery.order, delivery), :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <p>Nessuna consegna effettuata</p>
+<% end %>
+<%= link_to 'Back', orders_path %> |
+<%= link_to 'New Delivery', new_order_delivery_path %>
+

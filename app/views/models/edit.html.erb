@@ -1,10 +1,13 @@
-<div class="ui-widget ui-widget-header ui-corner-top">Modifica Modello</div>
+<div class="ui-widget ui-widget-header ui-corner-top titolo-pagina">Modifica modello</div>
 <div class="ui-widget ui-widget-content ui-corner-bottom">
   <div class="contestual-menu">
-    <%= link_to 'Tutti i modelli', models_path %>
+    <%= link_to 'Indietro', order_models_path(@order), :class => "ui-state-active no-underline ui-corner-all ui-priority-primary contestual-link" %>
   </div>
-    <div class="form">
-      <%= render 'form' %>
-    </div>
+  
+  <div id="container">
+  	<div class="form">
+    	<%= render 'form' %>
+  	</div>
   </div>
-
+  <br/>
+</div>

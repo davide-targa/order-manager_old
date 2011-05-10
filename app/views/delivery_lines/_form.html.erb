@@ -1,0 +1,18 @@
+<%= form_for([@order,@delivery,@delivery_line]) do |f| %>
+  
+  <%= render 'shared/error_messages', :object => @delivery_line %>
+
+  
+  <div class="field affiancati">
+    <%= f.label :article_barcode, "Codice a barre" %><br />
+    <%= f.text_field :article_barcode %>
+  </div>
+  <div class="field affiancati">
+    <%= f.label :quantity %><br />
+    <%= f.text_field :quantity %>
+  </div>
+    <%= f.hidden_field :delivery_id %>
+  <div class="actions affiancati">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,25 +1,16 @@
-<%= nested_form_for(@order) do |f| %>
+<%= form_for(@order) do |f| %>
 
   <%= render 'shared/error_messages', :object => @order %>
 
-  <div class="field">
+  <div class="affiancati">
     <%= f.label :date %><br />
-    <%= f.date_select :date, :order => [:day, :month, :year] %>
+    <%= f.text_field :date, :value => (@order.date.strftime("%d/%m/%Y") if @order.date) %>
   </div>
-  <div class="field">
+  <div class="affiancati">
     <%= f.label :expiration_date %><br />
-    <%= f.date_select :expiration_date, :order => [:day, :month, :year] %>
+    <%= f.text_field :expiration_date, :value => (@order.expiration_date.strftime("%d/%m/%Y") if @order.expiration_date) %>
   </div>
-
-  <h2>Dettagli ordine</h2>
-  <div>
-    <%= f.fields_for :order_lines do |builder| %>
-        <%= render 'order_line_fields', :f => builder %>
-    <% end %>    
-    <%= f.link_to_add "Aggiungi", :order_lines %>
-  </div>
-  
-  <div class="actions">
-    <%= f.submit %>
+  <div class="affiancati">
+    <%= f.submit :class => "ui-state-default" %>
   </div>
 <% end %>

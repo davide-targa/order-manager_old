@@ -3,6 +3,7 @@ class CreateModels < ActiveRecord::Migration
     create_table :models do |t|
       t.string :code
       t.text :description
+      t.references :order
 
       t.timestamps
     end

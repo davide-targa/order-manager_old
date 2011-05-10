@@ -1,48 +1,58 @@
-<div class="ui-widget ui-widget-header ui-corner-top">Tutti i modelli</div>
+<div class="ui-widget ui-widget-header ui-corner-top titolo-pagina">Elenco modelli per l'ordine del <%= pretty_date @order.date %></div>
 <div class="ui-widget ui-widget-content ui-corner-bottom">
   <div class="contestual-menu">
-    <%= link_to 'Nuovo Modello', new_model_path %>
+    <%= link_to 'Indietro', orders_path(@order), :class => "ui-state-active no-underline ui-corner-all ui-priority-primary contestual-link" %>
   </div>
-  <table class="tabella-elenco">
-    <tr>
-      <th class="titolo-elenco">Codice</th>
-      <th class="titolo-elenco">Descrizione</th>
-      <th class="titolo-elenco"># Articoli</th>
-      <th colspan="2" class="expand"><%= link_to "", :class => 'expand-all no-underline' do %>
-      									<div class="affiancati bottom-align ui-icon ui-icon-arrowstop-1-s"></div>
-      									<div class="affiancati">Espandi tutto</div>
-      					             <% end %></th>
-    </tr>
-
-    <% @models.each do |model| %>
-      <tr class="hover">
-        <td><%= link_to model.code, "", :class => 'model-details' %></td>
-        <td><%= model.description %></td>
-        <td class="centra"><%= model.articles.count %></td>
-        <td><%= link_to 'Modifica', edit_model_path(model) %></td>
-        <td><%= link_to 'Elimina', model, :confirm => 'Procedere con la cancellazione?', :method => :delete %></td>
+  <div id="container">
+    <br/>
+    <%= render 'form' %>
+    <br/>
+    <table class="ui-widget ui-widget-content ui-corner-all tabella-elenco espandi collapse">
+      <tr class="ui-widget ui-widget-header">
+        <th class="titolo-elenco-sx">Codice</th>
+        <th class="titolo-elenco-sx">Descrizione</th>
+        <th class="centra"># Articoli</th>
+        <th colspan="3" class="centra expand"><%= link_to "", :class => 'expand-all no-underline' do %>
+            <div class="affiancati bottom-align ui-icon ui-icon-arrowstop-1-s"></div>
+            <div class="affiancati link_espansione">Espandi tutto</div>
+          <% end %></th>
       </tr>
-      <% if model.articles.count > 0 %>
-        <tr class="hidden">
-          <td></td>
-          <td class="td-dettagli">
-            <table class="collapse espandi">
-              <tr class="intestazione-elenco">
-                <th class="titolo-elenco">Codice a barre</th>
-                <th class="titolo-elenco">Taglia</th>
-              </tr>
-              <% model.articles.each do |article| %>
-              <tr>
-                <td><%= article.barcode %></td>
-                <td class="centra"><%= article.size %></td>
-              </tr>
-              <% end %>
-            </table>
-          <td colspan="3"></td>
-          </td>
-        </tr>
+
+      <% if @models.length > 0 %>
+
+        <% @models.each do |model| %>
+          <tr class="hover">
+            <td><%= link_to model.code, "", :class => 'model-details' %></td>
+            <td><%= model.description %></td>
+            <td class="centra"><%= model.articles.count %></td>
+            <td class="centra icona"><%= link_to image_tag('show.png', :class => 'menu-img', :title => 'Dettagli'), order_model_articles_path(model.order, model) %></td>
+            <td class="centra icona"><%= link_to image_tag('edit.png', :class => 'menu-img', :title => 'Modifica'), edit_order_model_path(model.order, model) %></td>
+            <td class="centra icona"><%= link_to image_tag('delete.png', :class => 'menu-img', :title => 'Elimina'), order_model_path(model.order, model), :confirm => 'Procedere con la cancellazione?', :method => :delete %></td>
+          </tr>
+          <tr class="hidden">
+            <% if model.articles.count > 0 %>
+              <td></td>
+              <td class="td-dettagli">
+                <table class="ui-widget ui-widget-content ui-corner-all tabella-elenco collapse espandi">
+                  <tr class="ui-widget-header">
+                    <th class="titolo-elenco-sx">Codice a barre</th>
+                    <th class="centra">Taglia</th>
+                  </tr>
+                  <% model.articles.each do |article| %>
+                    <tr>
+                      <td><%= article.barcode %></td>
+                      <td class="centra"><%= article.size %></td>
+                    </tr>
+                  <% end %>
+                </table>
+              <td colspan="3"></td>
+              </td>
+
+            <% end %>
+          </tr>
+        <% end %>
       <% end %>
-    <% end %>
-  </table>
+    </table>
+  </div>
   <br/>
 </div>

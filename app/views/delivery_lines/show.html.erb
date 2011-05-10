@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Quantity:</b>
+  <%= @delivery_line.quantity %>
+</p>
+
+<p>
+  <b>Article:</b>
+  <%= @delivery_line.article %>
+</p>
+
+<p>
+  <b>Delivery:</b>
+  <%= @delivery_line.delivery %>
+</p>
+
+
+<%= link_to 'Edit', edit_delivery_line_path(@delivery_line) %> |
+<%= link_to 'Back', delivery_lines_path %>

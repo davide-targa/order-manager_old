@@ -1,0 +1,16 @@
+<%= form_for([@order,@order_line]) do |f| %>
+
+  <%= render 'shared/error_messages', :object => @order_line %>
+
+  <div class="affiancati">
+    <%= f.label :article_id %><br />
+    <%= f.text_field :article_id %>
+  </div>
+  <div class="affiancati">
+    <%= f.label :quantity %><br />
+    <%= f.text_field :quantity %>
+  </div>
+  <div class="affiancati">
+    <%= f.submit :class => "ui-state-default" %>
+  </div>
+<% end %>

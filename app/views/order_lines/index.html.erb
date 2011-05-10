@@ -1,0 +1,22 @@
+<h1>Dettaglio ordine del <%= pretty_date @order.date %> - Scadenza <%= pretty_date @order.expiration_date %></h1>
+<%= render 'form' %>
+<% if @order_lines.length > 0 %>
+  <table>
+    <tr>
+      <th>Codice a barre</th>
+      <th>Quantità</th>
+      <th></th>
+      <th></th>
+    </tr>
+
+    <% @order_lines.each do |order_line| %>
+      <tr>
+        <td><%= link_to 'Modifica', edit_order_path(order) %></td>
+        <td><%= link_to 'Elimina', order, :confirm => 'Are you sure?', :method => :delete %></td>
+        <td><%= link_to "Consegne (#{order.deliveries.count})", order_deliveries_path(order) %></td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <p>Nessuna riga d'ordine disponibile</p>
+<% end %>

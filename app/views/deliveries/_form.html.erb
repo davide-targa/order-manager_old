@@ -1,0 +1,13 @@
+<%= form_for([@delivery.order, @delivery]) do |f| %>
+
+  <%= render 'shared/error_messages', :object => @delivery %>
+
+  <div class="field">
+    <%= f.label :date %><br />
+    <%= f.text_field :date, :value => @delivery.date ? @delivery.date.strftime("%d/%m/%Y") : Date.today.strftime("%d/%m/%Y") %>
+  </div>
+  <%= f.hidden_field :order_id %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

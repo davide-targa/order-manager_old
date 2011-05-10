@@ -1,44 +1,64 @@
+#container {
+	padding: 0 2em 0 2em;
+}
+
+.link_espansione {
+	color: #ffffff;
+}
+
+.titolo-elenco-sx {
+	text-align: left;
+	padding-left: 2em;
+}
+
+.tabella-elenco td {
+	padding-left: 1em;
+	padding-right: 1em;
+}
+
+.tabella-elenco td a {
+	margin-left: auto;
+	margin-right: auto;
+}
+
 .sub-field {
     display: inline;
 }
 
 .contestual-menu {
     display: block;
+    padding: .5em 2em;
 }
 
-.contestual-menu a {    
+.contestual-link {
+	padding: .2em 1em;	
+}
+
+.contestual-menu > a {    
     color: #5c9ccc;
 }
 
-.titolo-elenco {
-    background-color: #dfeffc;
-    border: 1px solid #4297d7;
-    padding: .2em 2em .2em .5em;
-    text-align: left;
+.menu-img {
+	border: none;
+	vertical-align: middle;
 }
 
-.tabella-elenco {
-    border-collapse: collapse;
-    margin-left: auto;
-    margin-right: auto;
+.titolo-pagina {
+	padding: .5em 0;
+	font-size: 1.5em;
 }
 
-.tabella-elenco td {
-    padding: .2em 1em;
-    border: 1px solid #4297d7;
-    border-collapse: collapse;
-}
-
-.tr-hover {
-    background-color: #dfeffc;
-}
 
 .form {
-    padding: 1em 3em 0 3em;
+    padding: 1em 0 0 0;
 }
 
 .subform {
     padding: 0 3em 0 3em;
+}
+
+#adder {
+	
 }
 
 .hidden {
@@ -51,10 +71,6 @@
 
 .debug {
     border: 1px solid red;
-}
-
-td.td-dettagli {
-    padding: 0;
 }
 
 .espandi {
@@ -82,4 +98,8 @@ div.affiancati{
 
 .no-underline {
 	text-decoration: none;
+}
+
+.icona {
+    width: 3em;
 }

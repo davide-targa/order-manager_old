@@ -1,0 +1,13 @@
+<div class="ui-widget ui-widget-header ui-corner-top titolo-pagina">Modifica articolo per il modello <%= @model.code %></div>
+<div class="ui-widget ui-widget-content ui-corner-bottom">
+  <div class="contestual-menu">
+    <%= link_to 'Indietro', order_model_articles_path(@order,@model), :class => "ui-state-active no-underline ui-corner-all ui-priority-primary contestual-link" %>
+  </div>
+
+  <div id="container">
+  	<div class="form">
+    	<%= render 'form' %>
+  	</div>
+  </div>
+  <br/>
+</div>

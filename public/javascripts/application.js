@@ -54,6 +54,13 @@ $(document).ready(function(){
     	return false;
     });
     
+    /*
+     * GESTIONE DATEPICKER FORM ORDINI
+     */
+    $("#order_date, #order_expiration_date, #delivery_date").datepicker({
+    	dateFormat : 'dd/mm/yy'
+    });
+    
 });
 
 

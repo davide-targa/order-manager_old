@@ -1,0 +1,26 @@
+<table>
+  <tr>
+    <th>Codice</th>
+    <th>Quantità</th>
+    <th>Codice a barre</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @delivery.delivery_lines.each do |delivery_line| %>
+  <tr>
+    <td><%= delivery_line.article.model.code %></td>
+    <td><%= delivery_line.quantity %></td>
+    <td><%= delivery_line.article.barcode %></td>
+    <td><%= link_to 'Edit', edit_order_delivery_delivery_line_path(delivery_line.delivery.order,delivery_line.delivery,delivery_line) %></td>
+    <td><%= link_to 'Destroy', url_for([delivery_line.delivery.order,delivery_line.delivery,delivery_line]), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+  <tr>
+    <td>TOTALI:</td>
+    <td><%= @delivery.delivery_lines.inject(0){ |memo, el| memo += el.quantity } %></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>

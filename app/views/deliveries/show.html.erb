@@ -1,0 +1,6 @@
+<h1>Consegne effettuate per l'ordine del <%= @delivery.order.date.strftime("%d/%m/%Y") %></h1>
+
+<%= render 'delivery_lines/form' %>
+<%= render 'delivery_lines/index' %>
+
+<%= link_to 'Back', order_deliveries_path(@delivery.order) %>

@@ -1,0 +1,23 @@
+<h1>Elenco articoli per il modello <%= @model.code %></h1>
+<%= render 'form' %>
+<% if @articles.length > 0 %>
+  <table>
+    <tr>
+      <th>Codice a barre</th>
+      <th>Taglia</th>
+      <th></th>
+      <th></th>
+    </tr>
+
+    <% @articles.each do |article| %>
+      <tr>
+        <td><%= article.barcode %></td>
+        <td><%= article.size %></td>
+        <td><%= link_to 'Modifica', edit_order_model_article_path(@order,@model,article) %></td>
+        <td><%= link_to 'Elimina', order_model_article_path(@order,@model,article), :confirm => 'Procedere con la cancellazione?', :method => :delete %></td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <p>Nessun articolo disponibile</p>
+<% end %>
