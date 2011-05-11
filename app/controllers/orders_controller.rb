@@ -11,9 +11,8 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(params[:order])
-
     if @order.save
-      redirect_to(orders_path(@order), :notice => 'Order was successfully created.')
+      redirect_to(orders_path, :notice => 'Order was successfully created.')
     else
       render :action => "new"
     end
@@ -21,7 +20,6 @@ class OrdersController < ApplicationController
 
   def update
     @order = Order.find(params[:id])
-
     if @order.update_attributes(params[:order])
       redirect_to(orders_path, :notice => 'Order was successfully updated.')
     else
