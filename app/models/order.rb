@@ -8,7 +8,7 @@ class Order < ActiveRecord::Base
   validate :order_date_before_expiration_date
 
   def order_date_before_expiration_date
-    if self.date > self.expiration_date
+    if self.date and self.expiration_date and self.date > self.expiration_date
       errors[:date] << "deve precedere la data di scadenza"
       errors[:expiration_date] << "deve essere successiva alla data dell'ordine"
     end
