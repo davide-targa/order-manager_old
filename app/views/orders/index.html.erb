@@ -1,30 +1,35 @@
-<h1>Elenco ordini</h1>
-<%= render 'form' %>
-<% if @orders.length > 0 %>
-  <table>
-    <tr>
-      <th>Data ordine</th>
-      <th>Data di scadenza</th>
-      <th>Pezzi Ordinati</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
+<div class="ui-widget ui-widget-header ui-corner-top titolo-pagina">Elenco ordini</div>
+<div class="ui-widget ui-widget-content ui-corner-bottom">
+  <div class="contestual-menu">
+    <%= link_to 'FooBar', orders_path(@order), :class => "ui-state-active no-underline ui-corner-all ui-priority-primary contestual-link" %>
+  </div>
+  <div id="container">
+    <%= render 'form' %>
+    <% if @orders.length > 0 %>
+      <table class="ui-widget ui-widget-content ui-corner-all tabella-elenco espandi collapse">
+        <tr class="ui-widget ui-widget-header">
+          <th class="centra">Data ordine</th>
+          <th class="centra">Data di scadenza</th>
+          <th class="centra">Pezzi Ordinati</th>
+          <th colspan="5"></th>
+        </tr>
 
-    <% @orders.each do |order| %>
-      <tr>
-        <td><%= order.date.strftime("%d/%m/%Y") %></td>
-        <td><%= order.expiration_date.strftime("%d/%m/%Y") %></td>
-        <td>???</td>
-        <td><%= link_to 'Dettagli', order_order_lines_path(order) %></td>
-        <td><%= link_to 'Modifica', edit_order_path(order) %></td>
-        <td><%= link_to 'Elimina', order, :confirm => 'Are you sure?', :method => :delete %></td>
-        <td><%= link_to 'Anagrafica', order_models_path(order) %></td>
-        <td><%= link_to "Consegne (#{order.deliveries.count})", order_deliveries_path(order) %></td>
-      </tr>
+        <% @orders.each do |order| %>
+          <tr>
+            <td class="centra"><%= order.date.strftime("%d/%m/%Y") %></td>
+            <td class="centra"><%= order.expiration_date.strftime("%d/%m/%Y") %></td>
+            <td class="centra">???</td>
+            <td><%= link_to 'Dettagli', order_order_lines_path(order) %></td>
+            <td><%= link_to image_tag('edit.png', :class => 'menu-img', :title => 'Modifica'), edit_order_path(order) %></td>
+            <td><%= link_to image_tag('delete.png', :class => 'menu-img', :title => 'Elimina'), order, :confirm => 'Are you sure?', :method => :delete %></td>
+            <td><%= link_to image_tag('archive.png', :class => 'menu-img', :title => 'Anagrafica'), order_models_path(order) %></td>
+            <td><%= link_to "Consegne (#{order.deliveries.count})", order_deliveries_path(order) %></td>
+          </tr>
+        <% end %>
+      </table>
+    <% else %>
+      <p>Nessun ordine disponibile</p>
     <% end %>
-  </table>
-<% else %>
-  <p>Nessun ordine disponibile</p>
-<% end %>
+  </div>
+  <br/>
+</div>
