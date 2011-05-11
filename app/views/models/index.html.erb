@@ -37,17 +37,20 @@
                   <tr class="ui-widget-header">
                     <th class="titolo-elenco-sx">Codice a barre</th>
                     <th class="centra">Taglia</th>
+                    <th></th>
+                    <th></th>
                   </tr>
                   <% model.articles.each do |article| %>
                     <tr>
                       <td><%= article.barcode %></td>
                       <td class="centra"><%= article.size %></td>
+                      <td class="centra icona"><%= link_to image_tag('edit.png', :class => 'menu-img', :title => 'Modifica'), edit_order_model_article_path(model.order, model, article) %></td>
+                      <td class="centra icona"><%= link_to image_tag('delete.png', :class => 'menu-img', :title => 'Elimina'), order_model_article_path(model.order, model, article), :confirm => 'Procedere con la cancellazione?', :method => :delete %></td>
                     </tr>
                   <% end %>
                 </table>
-              <td colspan="3"></td>
+              <td colspan="4"></td>
               </td>
-
             <% end %>
           </tr>
         <% end %>
