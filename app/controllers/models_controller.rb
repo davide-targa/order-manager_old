@@ -25,8 +25,6 @@ class ModelsController < ApplicationController
     @model = Model.find(params[:id])
   end
 
-  
-
   def update
     @order = Order.find(params[:order_id])
     @model = Model.find(params[:id])

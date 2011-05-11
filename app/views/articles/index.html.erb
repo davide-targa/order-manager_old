@@ -4,24 +4,21 @@
     <%= link_to 'Indietro', order_models_path(@order), :class => "ui-state-active no-underline ui-corner-all ui-priority-primary contestual-link" %>
   </div>
   <div id="container">
-    <div class="form">
-      <%= render 'form' %>
-    </div>
+    <%= render 'form' %>
     <% if @articles.length > 0 %>
-      <table>
-        <tr>
-          <th>Codice a barre</th>
-          <th>Taglia</th>
-          <th></th>
-          <th></th>
+      <table class="ui-widget ui-widget-content ui-corner-all tabella-elenco espandi collapse">
+        <tr class="ui-widget ui-widget-header">
+          <th class="centra">Codice a barre</th>
+          <th class="centra">Taglia</th>
+          <th colspan="2"></th>
         </tr>
 
         <% @articles.each do |article| %>
           <tr>
-            <td><%= article.barcode %></td>
-            <td><%= article.size %></td>
-            <td><%= link_to 'Modifica', edit_order_model_article_path(@order,@model,article) %></td>
-            <td><%= link_to 'Elimina', order_model_article_path(@order,@model,article), :confirm => 'Procedere con la cancellazione?', :method => :delete %></td>
+            <td class="centra"><%= article.barcode %></td>
+            <td class="centra"><%= article.size %></td>
+            <td class="centra"><%= link_to 'Modifica', edit_order_model_article_path(@order,@model,article) %></td>
+            <td class="centra"><%= link_to 'Elimina', order_model_article_path(@order,@model,article), :confirm => 'Procedere con la cancellazione?', :method => :delete %></td>
           </tr>
         <% end %>
       </table>
@@ -29,4 +26,5 @@
       <p>Nessun articolo disponibile</p>
     <% end %>
   </div>
+  <br/>
 </div>

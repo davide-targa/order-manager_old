@@ -1,5 +1,10 @@
-<h1>Editing order</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', orders_path %>
+<div class="ui-widget ui-widget-header ui-corner-top titolo-pagina">Modifica ordine</div>
+<div class="ui-widget ui-widget-content ui-corner-bottom">
+  <div class="contestual-menu">
+    <%= link_to 'Indietro', orders_path, :class => "ui-state-active no-underline ui-corner-all ui-priority-primary contestual-link" %>
+  </div>
+  <div id="container">
+    <%= render 'form' %>
+  </div>
+  <br/>
+</div>
