@@ -19,11 +19,11 @@
             <td class="centra"><%= order.date.strftime("%d/%m/%Y") %></td>
             <td class="centra"><%= order.expiration_date.strftime("%d/%m/%Y") %></td>
             <td class="centra">???</td>
+            <td><%= link_to image_tag('archive.png', :class => 'menu-img', :title => 'Anagrafica'), order_models_path(order) %></td>
             <td><%= link_to 'Dettagli', order_order_lines_path(order) %></td>
+            <td><%= link_to "Consegne (#{order.deliveries.count})", order_deliveries_path(order) %></td>
             <td><%= link_to image_tag('edit.png', :class => 'menu-img', :title => 'Modifica'), edit_order_path(order) %></td>
             <td><%= link_to image_tag('delete.png', :class => 'menu-img', :title => 'Elimina'), order, :confirm => 'Are you sure?', :method => :delete %></td>
-            <td><%= link_to image_tag('archive.png', :class => 'menu-img', :title => 'Anagrafica'), order_models_path(order) %></td>
-            <td><%= link_to "Consegne (#{order.deliveries.count})", order_deliveries_path(order) %></td>
           </tr>
         <% end %>
       </table>
@@ -33,3 +33,12 @@
   </div>
   <br/>
 </div>
+<h1>TODO:</h1>
+<ol>
+  <li>Sistemare visualizzazione bordo inferiore tabella quando si preme "visualizza tutto" in elenco modelli.</li>
+  <li>Sistemare css messaggi di errore che cambia l'allineamento dei campi dei form.</li>
+  <li>Inserire footer.</li>
+  <li>Inserire icone di modifica e cancellazione in elenco articoli</li>
+  <li>Inserire barra titolo applicazione.</li>
+  <li>Validare la presenza delle chiavi importate all'interno dei model.</li>
+</ol>
