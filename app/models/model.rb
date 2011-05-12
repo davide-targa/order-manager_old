@@ -4,5 +4,6 @@ class Model < ActiveRecord::Base
   
   validates :code, :presence => true, :uniqueness => { :scope => :order_id}
   validates :description, :presence => true
+  validates :order_id, :presence => true
   
 end
