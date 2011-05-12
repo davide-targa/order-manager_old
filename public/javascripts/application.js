@@ -6,18 +6,6 @@ $(document).ready(function(){
         $(this).prev("input[type=hidden]").val("1");
         $(this).closest(".fields").fadeOut("slow");
     });
-    
-    /*
-     * VISUALIZZA LO SFONDO COLORATO QUANDO SI È CON IL MOUSE AL DI SOPRA DI UN TR
-     */
-    $(".hover").hover(
-    function(){
-        $(this).addClass("tr-hover");
-    },
-    function(){
-        $(this).removeClass("tr-hover");
-    }
-);
 
     /*
      * VISUALIZZA I DETTAGLI AL CLICK SOLO PER IL TR CORRENTE NELLA TABELLA INDEX
@@ -43,7 +31,10 @@ $(document).ready(function(){
             div_testo.html("Chiudi tutto");
             div_immagine.removeClass("ui-icon-arrowstop-1-s").addClass("ui-icon-arrowstop-1-n");
             $(this).closest("table").find("tr.hidden").each(function(){
+            if ($($(this).find("table")).length > 0)
+            {
     		$(this).show();
+            }
             });
     	}
     	else
