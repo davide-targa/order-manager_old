@@ -3,6 +3,10 @@
   <%= render 'shared/error_messages', :object => @order_line %>
 
   <div class="affiancati">
+    <%= label_tag :model %><br/>
+    <%= text_field_tag :model %>
+  </div>
+  <div class="affiancati">
     <%= f.label :article_id %><br />
     <%= f.text_field :article_id %>
   </div>

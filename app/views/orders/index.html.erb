@@ -13,7 +13,6 @@
           <th class="centra">Pezzi Ordinati</th>
           <th colspan="5"></th>
         </tr>
-
         <% @orders.each do |order| %>
           <tr>
             <td class="centra"><%= order.date.strftime("%d/%m/%Y") %></td>
@@ -35,10 +34,11 @@
 </div>
 <h1>TODO:</h1>
 <ol>
-  <li>Sistemare visualizzazione bordo inferiore tabella quando si preme "visualizza tutto" in elenco modelli.</li>
+  <li style="text-decoration: line-through">Sistemare visualizzazione bordo inferiore tabella quando si preme "visualizza tutto" in elenco modelli.</li>
   <li>Sistemare css messaggi di errore che cambia l'allineamento dei campi dei form.</li>
   <li>Inserire footer.</li>
   <li>Inserire icone di modifica e cancellazione in elenco articoli</li>
   <li>Inserire barra titolo applicazione.</li>
   <li>Validare la presenza delle chiavi importate all'interno dei model.</li>
+  <li>Sistemare stili pulsanti per effetto 'premuto' con proprietà :active.</li>
 </ol>
