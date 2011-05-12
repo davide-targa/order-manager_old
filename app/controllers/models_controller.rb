@@ -16,7 +16,8 @@ class ModelsController < ApplicationController
       redirect_to(order_models_path(@order,@model), :notice => 'Model was successfully created.')
     else
       @models = Model.where(params[:order_id])
-      render "models/index"
+      puts "\n\n\n#{@models.inspect}\n\n\n"
+      render "index"
     end
   end
   
@@ -31,9 +32,9 @@ class ModelsController < ApplicationController
 
     respond_to do |format|
       if @model.update_attributes(params[:model])
-        format.html { redirect_to(order_models_path(@order), :notice => 'Model was successfully updated.') }
+        redirect_to(order_models_path(@order), :notice => 'Model was successfully updated.')
       else
-        format.html { render :action => "edit" }
+        render :action => "edit"
       end
     end
   end
