@@ -1,5 +1,0 @@
-<% @var = []
-	 @models.each_with_index do |model, idx|
-		 @var << {"value" => model.code.to_s, "id" => model.id.to_s}
-   end %>
-<%=raw @var.to_s.gsub("=>",":").html_safe %>
