@@ -103,3 +103,8 @@ div.affiancati{
 .icona {
     width: 3em;
 }
+
+.error-info {
+    font-style: italic;
+    color: red;
+}

@@ -59,8 +59,19 @@ $(document).ready(function(){
     /*
      * AUTOCOMPLETE MODEL
      */
-    
-    
+    $("input.autocomplete").autocomplete({
+        source: "models/search.json",
+        delay: 500
+    }).blur(function(){
+        var model = $(this).val();
+        $.ajax({
+            url: "models/show.js",
+            data: {
+                model: model
+            }
+        });
+    });
+
 });
 
 

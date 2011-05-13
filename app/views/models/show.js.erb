@@ -1,0 +1,12 @@
+<%#=raw @model.inspect %>
+<% if @model.blank? %>
+  $("#ok-img").hide();
+  $("#model-error").show();
+  $("#ko-img").show();
+  $("#model").focus();
+  $("#model-name").remove();
+<% else %>
+  $("#ko-img").hide();
+  $("#model-error").hide();
+  $("#ok-img").show().parent("div").append("<span id='model-name'><%= @model.description %></span>");
+<% end %>

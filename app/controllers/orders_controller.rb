@@ -14,7 +14,8 @@ class OrdersController < ApplicationController
     if @order.save
       redirect_to(orders_path, :notice => 'Order was successfully created.')
     else
-      render :action => "new"
+      @orders = Order.all
+      render :action => "index"
     end
   end
 

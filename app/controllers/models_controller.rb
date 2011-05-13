@@ -7,6 +7,14 @@ class ModelsController < ApplicationController
     @model = Model.new
   end
 
+  def show
+    @order = Order.find(params[:order_id])
+    @model = @order.models.where(:code => params[:model]).first
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def create
     @order = Order.find(params[:order_id])
     @model = Model.new(params[:model])
@@ -30,12 +38,10 @@ class ModelsController < ApplicationController
     @order = Order.find(params[:order_id])
     @model = Model.find(params[:id])
 
-    respond_to do |format|
-      if @model.update_attributes(params[:model])
-        redirect_to(order_models_path(@order), :notice => 'Model was successfully updated.')
-      else
-        render :action => "edit"
-      end
+    if @model.update_attributes(params[:model])
+      redirect_to(order_models_path(@order), :notice => 'Model was successfully updated.')
+    else
+      render :action => "edit"
     end
   end
 
@@ -47,6 +53,11 @@ class ModelsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(order_models_path(@order)) }
     end
+  end
+
+  def search
+    @order = Order.find(params[:order_id])
+    @models = Model.where("code like ?","%#{params[:term]}%").where(:order_id => @order.id)
   end
 
 end

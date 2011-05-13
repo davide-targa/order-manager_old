@@ -2,10 +2,19 @@
 
   <%= render 'shared/error_messages', :object => @order_line %>
 
-  <div class="affiancati">
+  <div>
     <%= label_tag :model %><br/>
-    <%= text_field_tag :model %>
+    <%= text_field_tag :model, "", :class => "autocomplete" %>
+    <%= image_tag "icons/ok.png", :id => "ok-img", :class => "hidden" %>
+    <%= image_tag "icons/ko.png", :id => "ko-img", :class => "hidden" %>
+    <span id="model-error" class="error-info hidden">non esistente!</span>
   </div>
+  <div class="affiancati">
+    <%= label_tag :size %><br/>
+    <%= text_field_tag :size, "" %>
+  </div>
+
+
   <div class="affiancati">
     <%= f.label :article_id %><br />
     <%= f.text_field :article_id %>

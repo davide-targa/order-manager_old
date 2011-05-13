@@ -4,6 +4,9 @@ OrderManager::Application.routes.draw do
   resources :orders do
 
     resources :models do
+      collection do
+        get 'search'
+      end
       resources :articles
     end
     resources :order_lines
